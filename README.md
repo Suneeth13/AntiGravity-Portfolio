@@ -1,36 +1,47 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Suneeth S — Scrollytelling Portfolio
 
-## Getting Started
+A high-end, dark-themed scrollytelling personal portfolio built with **Next.js 14**, **Framer Motion**, and **Tailwind CSS**.
 
-First, run the development server:
+## 🚀 Live Demo
+**[https://Suneeth13.github.io/AntiGravity-Portfolio/](https://Suneeth13.github.io/AntiGravity-Portfolio/)**
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## ✨ Key Features
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 🎞️ Immersive Scrollytelling
+Features a custom **HTML5 Canvas** engine that scrubs through **120 high-resolution frames** of an image sequence based on scroll progress. 
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 🎭 Cinematic Parallax Overlays
+Dynamic text overlays that parallax, fade, and move with precision using **Framer Motion's** `useTransform` and `useScroll` hooks.
 
-## Learn More
+### 💎 Premium Design System
+- **Next.js 14 (App Router)** for performance.
+- **Tailwind CSS v3** with curated HSL color palettes.
+- **Glassmorphism UI** components (Cards, Pills, Badges) with backdrop blurs and subtle glows.
+- **Responsive Animations** including animated stat counters and staggered reveal effects.
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🛠️ Tech Stack
+- **Framework**: Next.js 14
+- **Language**: TypeScript
+- **Animation**: Framer Motion
+- **Styling**: Tailwind CSS
+- **Icons**: Lucide React
+- **Typography**: Syne (Headings) & DM Sans (Body)
+- **Deployment**: GitHub Actions + GitHub Pages
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## 🔧 Technical Implementation Details
+- **Static Export**: Configured with `output: "export"` and custom `basePath` for GitHub Pages sub-directory hosting.
+- **Canvas Optimization**: Manual `object-fit: cover` implementation for Canvas rendering to ensure visuals fill any viewport without distortion.
+- **Layout Precision**: Used negative margin offsets to seamlessly transition from the sticky scroll container to the main content.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 👨‍💻 Developed by
+**Suneeth S** — Final-year B.Tech AI/ML student at VIT Chennai.
+- [GitHub](https://github.com/Suneeth13)
+- [LinkedIn](https://linkedin.com/in/suneeth-s)
