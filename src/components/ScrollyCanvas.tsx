@@ -1,13 +1,14 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { useScroll, useMotionValueEvent } from "framer-motion";
 import Overlay from "./Overlay";
 
 const TOTAL_FRAMES = 120;
+const BASE_PATH = "/AntiGravity-Portfolio";
 
 const getPath = (i: number) =>
-  `/frame_${String(i).padStart(3, "0")}_delay-0.066s.webp`;
+  `${BASE_PATH}/frame_${String(i).padStart(3, "0")}_delay-0.066s.webp`;
 
 export default function ScrollyCanvas() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -46,7 +47,7 @@ export default function ScrollyCanvas() {
     setImages(imgArray);
   }, []);
 
-  const renderFrame = (index: number) => {
+  const renderFrame = useCallback((index: number) => {
     if (!canvasRef.current || !images[index]) return;
     const canvas = canvasRef.current;
     const ctx = canvas.getContext("2d");
@@ -77,7 +78,7 @@ export default function ScrollyCanvas() {
       img.naturalWidth * scale,
       img.naturalHeight * scale
     );
-  };
+  }, [images]);
 
   // Resize canvas handler
   useEffect(() => {
@@ -98,7 +99,7 @@ export default function ScrollyCanvas() {
     handleResize(); // trigger initially
 
     return () => window.removeEventListener("resize", handleResize);
-  }, [imagesLoaded]); // re-run if imagesLoaded changes so we can render frame 0
+  }, [imagesLoaded, renderFrame, scrollYProgress]); // re-run if imagesLoaded changes so we can render frame 0
 
   useMotionValueEvent(scrollYProgress, "change", (latest) => {
     if (!imagesLoaded) return;
@@ -114,7 +115,7 @@ export default function ScrollyCanvas() {
     if (imagesLoaded) {
       renderFrame(0);
     }
-  }, [imagesLoaded]);
+  }, [imagesLoaded, renderFrame]);
 
   return (
     <div ref={containerRef} className="relative h-[500vh] w-full bg-[#0e0e0e]">
